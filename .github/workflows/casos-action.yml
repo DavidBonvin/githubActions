@@ -1,0 +1,23 @@
+name: learn-github-action
+on: 
+  push:
+  pull_request:
+jobs:
+  learn-github-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Say Hello World
+        run: echo "Hello World"
+      - name: Check if Push
+        if: github.event_name == 'push'
+        run: echo "Esto es un push"
+      - name: Check if Pull Request
+        if: github.event_name == 'pull_request'
+        run: echo "Esto es un pull request"
+      - name: Learn GitHub Action
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm i -g bats
+      - run: bats -v
