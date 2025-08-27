@@ -16,4 +16,4 @@ jobs:
       - name: 'Message: PR Merged'
         # Define el nombre de la step.
         run: echo "PR mergée"
-        # Imprime el mensaje "PR mergée".
+        # Imprime el mensaje "PR mergée"
