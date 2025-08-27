@@ -1,0 +1,27 @@
+name: Linked Workflows
+# Define el nombre del workflow.
+on:
+  workflow_dispatch:
+    # Este workflow se lanza manualmente a través de la interfaz de GitHub.
+jobs:
+  job1:
+    # Define el primer job.
+    runs-on: ubuntu-latest
+    # El job se ejecutará en un runner de Ubuntu.
+    steps:
+      - name: 'Message: First job'
+        # Define el nombre de la step.
+        run: echo "El primer job se ha ejecutado manualmente"
+        # Imprime el mensaje para el primer job.
+
+  job2:
+    # Define el segundo job.
+    needs: [job1]
+    # El segundo job depende del primero, por lo que solo se ejecutará si 'job1' se completa.
+    runs-on: ubuntu-latest
+    # El job se ejecutará en un runner de Ubuntu.
+    steps:
+      - name: 'Message: Second job'
+        # Define el nombre de la step.
+        run: echo "El segundo job se ha ejecutado después del primero"
+        # Imprime el mensaje para el segundo job.
