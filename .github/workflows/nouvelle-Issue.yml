@@ -1,19 +1,11 @@
 name: Issue Workflow
-# Define el nombre del workflow.
 on:
   push:
-    # Se ejecutará cuando hagas push
   issues:
-    # Este workflow se activará por eventos relacionados con 'issues'.
     types: [opened]
-    # Especifica que solo se activará cuando una issue sea 'opened' (abierta).
 jobs:
   issue-job:
-    # Define un único job llamado 'issue-job'.
     runs-on: ubuntu-latest
-    # Indica que el job se ejecutará en un runner con el sistema operativo Ubuntu más reciente.
     steps:
       - name: 'Message: Issue opened'
-        # Define el nombre de la step (paso).
         run: echo "issue créée"
-        # El comando que se ejecutará: 'echo' para imprimir el mensaje "issue créée".
