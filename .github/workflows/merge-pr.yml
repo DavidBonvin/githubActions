@@ -1,19 +1,11 @@
 name: PR Merged Workflow
-# Define el nombre del workflow.
 on:
   pull_request:
-    # Este workflow se activará por eventos relacionados con 'pull_request'.
     types: [closed]
-    # Especifica que solo se activará cuando una pull request sea 'closed' (cerrada).
 jobs:
   merge-job:
-    # Define un job llamado 'merge-job'.
     runs-on: ubuntu-latest
-    # El job se ejecutará en un runner de Ubuntu.
     if: github.event.pull_request.merged == true
-    # Condición: El job solo se ejecutará si el atributo 'merged' del evento es verdadero, lo que significa que la PR fue fusionada.
     steps:
       - name: 'Message: PR Merged'
-        # Define el nombre de la step.
         run: echo "PR mergée"
-        # Imprime el mensaje "PR mergée"
