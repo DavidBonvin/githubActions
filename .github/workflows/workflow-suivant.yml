@@ -1,0 +1,19 @@
+name: Following Workflow
+# Define el nombre del workflow.
+on:
+  workflow_run:
+    # Este workflow se activará por eventos relacionados con 'workflow_run'.
+    workflows: ["PR Merged Workflow"]
+    # Especifica el nombre del workflow al que está 'escuchando'.
+    types: [completed]
+    # Especifica que se activará cuando el workflow anterior se haya 'completed' (completado).
+jobs:
+  follow-up-job:
+    # Define un job llamado 'follow-up-job'.
+    runs-on: ubuntu-latest
+    # El job se ejecutará en un runner de Ubuntu.
+    steps:
+      - name: 'Message: Workflow completed'
+        # Define el nombre de la step.
+        run: echo "Le workflow précédent est terminé"
+        # Imprime el mensaje de que el workflow anterior ha terminado.
