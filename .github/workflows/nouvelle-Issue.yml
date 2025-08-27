@@ -1,6 +1,8 @@
 name: Issue Workflow
 # Define el nombre del workflow.
 on:
+  push:
+    # Se ejecutará cuando hagas push
   issues:
     # Este workflow se activará por eventos relacionados con 'issues'.
     types: [opened]
